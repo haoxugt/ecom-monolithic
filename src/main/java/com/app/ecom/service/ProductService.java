@@ -44,6 +44,16 @@ public class ProductService {
                 });
     }
 
+    public boolean deleteProduct(Long id) {
+        return productRepository.findById(id)
+                .map(product -> {
+                    product.setActive(false);
+                    productRepository.save(product);
+                    return true;
+                }).orElse(false);
+
+    }
+
     // DTO transfer
     private ProductResponse mapToProductResponse(Product product) {
         ProductResponse productResponse = new ProductResponse();
