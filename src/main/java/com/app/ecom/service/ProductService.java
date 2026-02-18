@@ -28,6 +28,13 @@ public class ProductService {
                 .map(this::mapToProductResponse);
     }
 
+    // Search products
+    public List<ProductResponse> searchProducts(String keyword) {
+        return productRepository.searchProducts(keyword).stream()
+                .map(this::mapToProductResponse)
+                .collect(Collectors.toList());
+    }
+
     public ProductResponse createProduct(ProductRequest productRequest) {
         Product product = new Product();
         updateProductFromRequest(product, productRequest);
