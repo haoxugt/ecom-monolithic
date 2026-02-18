@@ -8,11 +8,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/products")
 public class ProductController {
     private final ProductService productService;
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> getProducts(){
+        return new ResponseEntity<>(productService.fetchAllProducts(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getAProduct(@PathVariable Long id){
+        return productService.fetchProduct(id).map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @PostMapping
     public ResponseEntity<ProductResponse> createProduct(@RequestBody ProductRequest productRequest){

@@ -13,5 +13,5 @@ public class ProductResponse {
     private Integer stockQuantity;
     private String category;
     private String imageUrl;
-    private Boolean activate;
+    private Boolean active;
 }
