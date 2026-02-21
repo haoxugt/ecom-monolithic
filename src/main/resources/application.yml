@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ecom-application
+    name: ecom-monolithic
   datasource:
     url: jdbc:postgresql://localhost:5432/ecom-database
     username: haoxugt

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.app</groupId>
-	<artifactId>ecom-application</artifactId>
+	<artifactId>ecom-monolithic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ecom-application</name>
+	<name>ecom-monolithic</name>
 	<description>Ecom project for Spring Boot</description>
 	<url/>
 	<licenses>
